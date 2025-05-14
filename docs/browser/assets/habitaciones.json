@@ -1,0 +1,49 @@
+{
+  "habitaciones": [
+    {
+      "id": 1,
+      "tipo": "Individual",
+      "descripcion": "Ideal para una persona.",
+      "imagenes": ["assets/images/individual1.jpg", "assets/images/individual2.jpg"]
+    },
+    {
+      "id": 2,
+      "tipo": "Doble",
+      "descripcion": "Habitación para dos personas.",
+      "imagenes": ["assets/images/doble1.jpg", "assets/images/doble2.jpg"]
+    },
+    {
+      "id": 3,
+      "tipo": "Suite",
+      "descripcion": "Suite de lujo con baño privado.",
+      "imagenes": ["assets/images/suite1.jpg", "assets/images/suite2.jpg"]
+    }
+  ],
+  "servicios": [
+    {
+      "nombre": "Spa",
+      "descripcion": "Relájate con un masaje en nuestro spa.",
+      "imagen": "assets/images/spa.jpg"
+    },
+    {
+      "nombre": "Desayuno incluido",
+      "descripcion": "Disfruta de un desayuno buffet.",
+      "imagen": "assets/images/desayuno.jpg"
+    },
+    {
+      "nombre": "Transporte",
+      "descripcion": "Servicio de transporte al aeropuerto.",
+      "imagen": "assets/images/transporte.jpg"
+    }
+  ],
+  "carrusel": [
+    "assets/images/88963513.jpg",
+    "assets/images/428240021.jpg",
+    "assets/images/208930858.jpg",
+    "assets/images/208936380.jpg",
+    "assets/images/208939924.jpg"
+  ],
+  "habitacion_mediana": "assets/images/habitacion_mediana.jpg",
+  "fondo_hotel": "assets/images/fondo_hotel.jpg",
+  "about_me": "assets/images/aboutme.jpg"
+}
