@@ -1,0 +1,77 @@
+  <!--div class="admin-panel">
+h2>Panel de Administración</h2>
+
+  <!-- Mostrar habitaciones disponibles >
+  <div class="habitaciones-disponibles">
+    <h3>Disponibilidad de Habitaciones</h3>
+    <div *ngFor="let habitacion of habitacionesDisponibles | keyvalue">
+      <p>{{ habitacion.key }}: {{ habitacion.value }} disponibles</p>
+      <button (click)="ocuparHabitacion(habitacion.key)">Ocupar</button>
+      <button (click)="liberarHabitacion(habitacion.key)">Liberar</button>
+    </div>
+  </div>
+
+  <!-- Mostrar reservas >
+  <div class="reservas">
+    <h3>Reservas</h3>
+    <div class="reservas-list">
+      <div *ngFor="let reserva of reservas; let i = index" class="reserva-card">
+        <p><strong>Nombre:</strong> {{ reserva.nombre }}</p>
+        <p><strong>Fecha Ingreso:</strong> {{ reserva.fechaIngreso }}</p>
+        <p><strong>Fecha Salida:</strong> {{ reserva.fechaSalida }}</p>
+        <p><strong>Habitación:</strong> {{ reserva.habitacion }}</p>
+        <p><strong>Servicios:</strong> {{ reserva.servicios.join(', ') }}</p>
+        <p><strong>Precio Final:</strong> ${{ reserva.precioFinal }}</p>
+
+        <button (click)="editarReserva(i)">Editar</button>
+        <button (click)="eliminarReserva(i)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div-->
+
+<nav class="navbar">
+  <h1>Admin</h1>
+  <!--a href="#inicio">Inicio</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#habitaciones">Habitaciones</a>
+  <a href="#acerca">Acerca de</a-->
+  <button class= "reservar" (click)="irAReservar()">Hacer Reserva</button>
+  <button class="logout" (click)="logout()">Finalizar sesión</button>
+</nav>
+
+<div class="admin-panel">
+  <h2>Panel de Administración</h2>
+  <!--div class="panel-ocupacion">
+  <h3>Estado de habitaciones</h3>
+  <ul>
+    <li *ngFor="let tipo of tiposHabitacion">
+      {{ tipo }}: {{ habitacionesOcupadas[tipo] || 0 }} / {{ totalHabitaciones[tipo] }} ocupadas
+    </li>
+  </ul>
+</div-->
+<div class="logo-container">
+  <img src="assets/images/logo.png" alt="Hotel Irreal Plaza Logo" class="hotel-logo">
+  <p class="slogan">Relájate, regálate descanso</p>
+</div>
+
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+  <div *ngIf="mensaje" class="alerta">
+  {{ mensaje }}
+</div>
+
+  <div *ngFor="let reserva of reservas; let i = index" class="reserva-card">
+  <h3>{{ reserva.nombre || 'Sin nombre' }}</h3>
+  <p><strong>Habitación:</strong> {{ reserva.habitacion || 'No especificada' }}</p>
+  <p><strong>Fechas:</strong> {{ reserva.fechaIngreso || '-' }} - {{ reserva.fechaSalida || '-' }}</p>
+  <p><strong>Días:</strong> {{ reserva.numDias || 0 }}</p>
+  <p><strong>Servicios:</strong>
+    {{ getServiciosActivos(reserva.servicios).join(', ') || 'Ninguno' }}
+  </p>
+  <p><strong>Total:</strong> ${{ reserva.precioFinal !== undefined ? reserva.precioFinal : '0' }}</p>
+  <button (click)="eliminarReserva(i)">Eliminar</button>
+  </div>
+
+<!--button class="logout" (click)="logout()">Finalizar sesión</button-->
+</div>

@@ -1,15 +1,22 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { HabitacionesComponent } from './components/habitaciones/habitaciones.component';
 import { ReservaComponent } from './components/reserva/reserva.component';
-import { DetalleHabitacionComponent } from './components/detalle-habitacion/detalle-habitacion.component'; // Importar el componente de detalles
 import { AdminComponent } from './components/admin/admin.component';
+import { DetalleHabitacionComponent } from './components/detalle-habitacion/detalle-habitacion.component';
 
-export const appRoutes: Routes = [
+const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'habitaciones', component: HabitacionesComponent },
   { path: 'reserva', component: ReservaComponent },
-  { path: 'habitaciones/:id', component: DetalleHabitacionComponent},
   { path: 'admin', component: AdminComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'habitaciones/:id', component: DetalleHabitacionComponent }, // Ruta para detalles de la habitación
+
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

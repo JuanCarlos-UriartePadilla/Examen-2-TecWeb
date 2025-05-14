@@ -1,0 +1,125 @@
+<!--div class="reserva-form">
+  <h2>Realizar Reserva</h2>
+  <form (ngSubmit)="submit()">
+    <input type="text" [(ngModel)]="nombre" placeholder="Nombre completo" name="nombre" required />
+    <input type="date" [(ngModel)]="fechaIngreso" name="fechaIngreso" required />
+    <input type="date" [(ngModel)]="fechaSalida" name="fechaSalida" required />
+    
+    <select [(ngModel)]="habitacion" name="habitacion" required>
+      <option *ngFor="let tipo of habitaciones" [value]="tipo">{{ tipo }}</option>
+    </select>
+
+    <div>
+      <label>
+        <input type="checkbox" [(ngModel)]="servicios" value="Spa" (change)="calcularPrecio()" /> Spa
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="servicios" value="Desayuno" (change)="calcularPrecio()" /> Desayuno
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="servicios" value="Transporte" (change)="calcularPrecio()" /> Transporte
+      </label>
+    </div>
+
+    <div>
+      <p><strong>Precio Final:</strong> ${{ precioFinal }}</p>
+    </div>
+    
+    <button type="submit">Enviar</button>
+  </form>
+  <p *ngIf="mensaje">{{ mensaje }}</p>
+</div-->
+
+<!--div>
+  <h2>Reserva de Habitación</h2>
+  <label>Nombre:
+    <input type="text" name="nombre" [(ngModel)]="nombre">
+  </label><br>
+  <label>Habitación:
+    <select name="room" [(ngModel)]="roomPrice">
+      <option [ngValue]="100">Estándar ($100)</option>
+      <option [ngValue]="150">Doble ($150)</option>
+      <option [ngValue]="230">Familiar ($230)</option>
+      <option [ngValue]="350">Suite ($350)</option>
+    </select>
+  </label><br>
+  <label>Fecha Ingreso:
+    <input type="date" name="fechaIngreso" [(ngModel)]="fechaIngreso">
+  </label>
+  <label>Fecha Salida:
+    <input type="date" name="fechaSalida" [(ngModel)]="fechaSalida">
+  </label><br>
+  <p>Servicios opcionales:</p>
+  <label><input type="checkbox" name="spa" [(ngModel)]="services.spa"> Spa $50</label>
+  <label><input type="checkbox" name="desayuno" [(ngModel)]="services.breakfast"> Desayuno $20</label>
+  <label><input type="checkbox" name="transporte" [(ngModel)]="services.transport"> Transporte $30</label><br><br>
+  <button (click)="reservar()">Reservar</button>
+
+  <div *ngIf="confirmationMessage">
+    <p>{{ confirmationMessage }}</p>
+  </div>
+</div-->
+<nav class="navbar">
+  <a href="#inicio">Inicio</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#habitaciones">Habitaciones</a>
+  <a href="#acerca">Acerca de</a>
+  
+  <!--Reds sociales -->
+  <div class="social-media-links">
+    <a href="https://www.instagram.com/hotelrealplazaags/" target="_blank" class="social-link">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.facebook.com/realplazaags/?locale=es_LA" target="_blank" class="social-link">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.google.com/maps/place/Hotel+Real+Plaza+Aguascalientes/@21.8793437,-102.2924027,17z/data=!4m9!3m8!1s0x8429ee7ba6beb833:0x839b8e660365185f!5m2!4m1!1i2!8m2!3d21.8793437!4d-102.2924027!16s%2Fg%2F11c6v5zw4x?entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="social-link">
+      <i class="fas fa-map-marker-alt"></i>
+    </a>
+  </div>
+</nav>
+
+<div class="reserva-container">
+  <h2>Reserva tu habitación</h2>
+  <form (ngSubmit)="reservar()">
+    <label>Nombre completo:
+      <input type="text" [(ngModel)]="nombre" name="nombre" required />
+    </label>
+
+    <label>Tipo de habitación:
+      <select [(ngModel)]="roomPrice" name="habitacion" required>
+        <option [ngValue]="100">Individual ($100/noche)</option>
+        <option [ngValue]="150">Doble ($150/noche)</option>
+        <option [ngValue]="200">Familiar ($200/noche)</option>
+        <option [ngValue]="250">Suite ($250/noche)</option>
+      </select>
+    </label>
+
+    <label>Fecha de ingreso:
+      <!--input type="date" [(ngModel)]="fechaIngreso" [min]="minDate" required /-->
+      <input type="date" [(ngModel)]="fechaIngreso" name="fechaIngreso" [min]="minDate" required />
+    </label>
+
+    <label>Fecha de salida:
+      <!--input type="date" [(ngModel)]="fechaSalida" [min]="minDate" required /-->
+
+      <input type="date" [(ngModel)]="fechaSalida" name="fechaSalida" [min]="minDate" required />
+    </label>
+
+    <div class="servicios">
+      <p><strong>Servicios adicionales:</strong></p>
+      <label><input type="checkbox" name="spa" [(ngModel)]="services.spa"> Spa $50</label>
+  <label><input type="checkbox" name="desayuno" [(ngModel)]="services.breakfast"> Desayuno $20</label>
+  <label><input type="checkbox" name="transporte" [(ngModel)]="services.transport"> Transporte $30</label><br><br>
+    </div>
+  
+    <div class="confirmacion" *ngIf="confirmationMessage">
+      {{ confirmationMessage }}
+    </div>
+
+    <button type="submit">Reservar</button><p> </p>
+  </form>
+
+  
+  <button (click)="irAHabitaciones()">Regresar</button>
+</div>

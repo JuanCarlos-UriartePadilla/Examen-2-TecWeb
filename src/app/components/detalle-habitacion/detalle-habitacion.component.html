@@ -1,0 +1,42 @@
+<nav class="navbar">
+  <a href="#inicio">Inicio</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#habitaciones">Habitaciones</a>
+  <a href="#acerca">Acerca de</a>
+  
+  <!--Reds sociales -->
+  <div class="social-media-links">
+    <a href="https://www.instagram.com/hotelrealplazaags/" target="_blank" class="social-link">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.facebook.com/realplazaags/?locale=es_LA" target="_blank" class="social-link">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.google.com/maps/place/Hotel+Real+Plaza+Aguascalientes/@21.8793437,-102.2924027,17z/data=!4m9!3m8!1s0x8429ee7ba6beb833:0x839b8e660365185f!5m2!4m1!1i2!8m2!3d21.8793437!4d-102.2924027!16s%2Fg%2F11c6v5zw4x?entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="social-link">
+      <i class="fas fa-map-marker-alt"></i>
+    </a>
+  </div>
+</nav>
+<div class="detalle-habitacion">
+  <div class="info-habitacion">
+    <h2>{{ habitacion?.tipo }}</h2>
+    <p>{{ descripcion }}</p>
+    <p><strong>Precio:</strong> ${{ precio }}</p>
+  </div>
+
+  <!-- Carrusel de Imágenes >
+  <div class="carrusel">
+    <div *ngFor="let imagen of imagenes" class="imagen">
+      <img [src]="imagen" alt="Imagen de la habitación" />
+    </div>
+  </div-->
+
+<div class="carrusel">
+  <div *ngFor="let imagen of imagenes" class="imagen">
+    <img [src]="imagen" alt="Imagen de la habitación" />
+  </div>
+</div>
+
+  <button (click)="irAReservar()">Reservar</button>
+  <button (click)="irAHabitaciones()">Regresar</button>
+</div>
